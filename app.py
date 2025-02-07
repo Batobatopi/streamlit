@@ -30,28 +30,6 @@ authenticator = Authenticate(
 from streamlit_option_menu import option_menu
 
 
-
-import streamlit as st
-
-col1, col2, col3 = st.columns(3)
-
-with col1:
-  st.header("A cat")
-  st.image("https://static.streamlit.io/examples/cat.jpg")
-
-with col2:
-  st.header("A dog")
-  st.image("https://static.streamlit.io/examples/dog.jpg")
-
-with col3:
-  st.header("An owl")
-  st.image("https://static.streamlit.io/examples/owl.jpg")
-
-
-import streamlit as st
-
-
-
 # Using object notation
 def accueil():
       st.sidebar.title("Bienvenu ", 'utilisateur')
@@ -86,9 +64,22 @@ add_radio = st.radio(
   
 # On indique au programme quoi faire en fonction du choix
 if selection == "Accueil":
-    st.write("Bienvenue sur la page d'accueil !")
+    st.title("Bienvenue sur la page d'accueil !")
 elif selection == "Photos":
-    st.write("Bienvenue sur mon album photo")
+    st.title("Bienvenue sur mon album photo")
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.header("A cat")
+        st.image("https://static.streamlit.io/examples/cat.jpg")
+
+    with col2:
+        st.header("A dog")
+        st.image("https://static.streamlit.io/examples/dog.jpg")
+
+    with col3:
+        st.header("An owl")
+        st.image("https://static.streamlit.io/examples/owl.jpg")
 # # ... et ainsi de suite pour les autres pages
 
 # import pandas as pd
