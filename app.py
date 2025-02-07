@@ -25,21 +25,7 @@ authenticator = Authenticate(
     30, # Le nombre de jours avant que le cookie expire 
 )
 
-authenticator.login()
 
-def accueil():
-      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
-
-
-if st.session_state["authentication_status"]:
-  accueil()
-  # Le bouton de déconnexion
-  authenticator.logout("Déconnexion")
-
-elif st.session_state["authentication_status"] is False:
-    st.error("L'username ou le password est/sont incorrect")
-elif st.session_state["authentication_status"] is None:
-    st.warning('Les champs username et mot de passe doivent être remplie')
 
 
 
@@ -47,11 +33,7 @@ elif st.session_state["authentication_status"] is None:
 # Importation du module
 from streamlit_option_menu import option_menu
 
-# Création du menu qui va afficher les choix qui se trouvent dans la variable options
-selection = option_menu(
-            menu_title=None,
-            options = ["Accueil", "Photos"]
-        )
+
 
 import streamlit as st
 
@@ -80,6 +62,27 @@ add_selectbox = st.sidebar.selectbox(
 
 # Using "with" notation
 with st.sidebar:
+    authenticator.login()
+
+def accueil():
+      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
+
+
+if st.session_state["authentication_status"]:
+  accueil()
+  # Le bouton de déconnexion
+  authenticator.logout("Déconnexion")
+
+elif st.session_state["authentication_status"] is False:
+    st.error("L'username ou le password est/sont incorrect")
+elif st.session_state["authentication_status"] is None:
+    st.warning('Les champs username et mot de passe doivent être remplie')
+
+# Création du menu qui va afficher les choix qui se trouvent dans la variable options
+selection = option_menu(
+            menu_title=None,
+            options = ["Accueil", "Photos"]
+        )    
     add_radio = st.radio(
         "Choose a shipping method",
         ("Standard (5-15 days)", "Express (2-5 days)")
