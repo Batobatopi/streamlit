@@ -37,19 +37,19 @@ def accueil():
 # Using "with" notation
 with st.sidebar:
     authenticator.login()
+    if st.session_state["authentication_status"]:
+        accueil()
+        # Le bouton de déconnexion
+        authenticator.logout("Déconnexion")
+
+    elif st.session_state["authentication_status"] is False:
+        st.error("L'username ou le password est/sont incorrect")
+    elif st.session_state["authentication_status"] is None:
+        st.warning('Les champs username et mot de passe doivent être remplie')
 
 
 
 
-if st.session_state["authentication_status"]:
-  accueil()
-  # Le bouton de déconnexion
-  authenticator.logout("Déconnexion")
-
-elif st.session_state["authentication_status"] is False:
-    st.error("L'username ou le password est/sont incorrect")
-elif st.session_state["authentication_status"] is None:
-    st.warning('Les champs username et mot de passe doivent être remplie')
 
 # Création du menu qui va afficher les choix qui se trouvent dans la variable options
 with st.sidebar:
