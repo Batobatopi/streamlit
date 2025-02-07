@@ -54,6 +54,9 @@ with col3:
 
 import streamlit as st
 
+def accueil():
+      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
+
 # Using object notation
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
@@ -64,8 +67,7 @@ add_selectbox = st.sidebar.selectbox(
 with st.sidebar:
     authenticator.login()
 
-def accueil():
-      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
+
 
 
 if st.session_state["authentication_status"]:
