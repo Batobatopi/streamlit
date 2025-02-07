@@ -54,7 +54,7 @@ import streamlit as st
 
 # Using object notation
 def accueil():
-      st.sidebar.title("Bienvenu ", name)
+      st.sidebar.title("Bienvenu ", 'utilisateur')
 
 # Using "with" notation
 with st.sidebar:
