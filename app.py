@@ -29,8 +29,7 @@ authenticator = Authenticate(
 # Importation du module
 from streamlit_option_menu import option_menu
 
-def accueil():
-      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
+
 
 import streamlit as st
 
@@ -54,10 +53,8 @@ import streamlit as st
 
 
 # Using object notation
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
+def accueil():
+      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
 
 # Using "with" notation
 with st.sidebar:
