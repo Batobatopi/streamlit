@@ -37,7 +37,7 @@ def accueil():
 # Using "with" notation
 with st.sidebar:
     authenticator.login()
-if st.session_state["authentication_status"]:
+    if st.session_state["authentication_status"]:
         accueil()
         # Le bouton de déconnexion
         authenticator.logout("Déconnexion")
@@ -53,10 +53,6 @@ if st.session_state["authentication_status"]:
         #     )
         
         # On indique au programme quoi faire en fonction du choix
-elif st.session_state["authentication_status"] is False:
-        st.error("L'username ou le password est/sont incorrect")
-elif st.session_state["authentication_status"] is None:
-        st.warning('Les champs username et mot de passe doivent être remplie')
 if selection == "Accueil":
     st.title("Bienvenue sur la page d'accueil !")
     link='https://raw.githubusercontent.com/mwaskom/seaborn-data/master/taxis.csv'
@@ -93,7 +89,10 @@ elif selection == "Photos":
         st.header("An owl")
         st.image("https://static.streamlit.io/examples/owl.jpg")
         
-
+elif st.session_state["authentication_status"] is False:
+    st.error("L'username ou le password est/sont incorrect")
+elif st.session_state["authentication_status"] is None:
+    st.warning('Les champs username et mot de passe doivent être remplie')
 
 
 
