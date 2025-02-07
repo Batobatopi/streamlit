@@ -79,7 +79,8 @@ elif st.session_state["authentication_status"] is None:
     st.warning('Les champs username et mot de passe doivent être remplie')
 
 # Création du menu qui va afficher les choix qui se trouvent dans la variable options
-selection = option_menu(
+with st.sidebar:
+   selection = option_menu(
             menu_title=None,
             options = ["Accueil", "Photos"]
         )    
