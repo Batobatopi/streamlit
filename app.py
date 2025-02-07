@@ -26,14 +26,11 @@ authenticator = Authenticate(
 )
 
 
-
-
-
-
 # Importation du module
 from streamlit_option_menu import option_menu
 
-
+def accueil():
+      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
 
 import streamlit as st
 
@@ -54,8 +51,7 @@ with col3:
 
 import streamlit as st
 
-def accueil():
-      st.title("Bienvenu sur le contenu réservé aux utilisateurs connectés")
+
 
 # Using object notation
 add_selectbox = st.sidebar.selectbox(
@@ -91,11 +87,11 @@ add_radio = st.radio(
         ("Standard (5-15 days)", "Express (2-5 days)")
     )
   
-# # On indique au programme quoi faire en fonction du choix
-# if selection == "Accueil":
-#     st.write("Bienvenue sur la page d'accueil !")
-# elif selection == "Photos":
-#     st.write("Bienvenue sur mon album photo")
+# On indique au programme quoi faire en fonction du choix
+if selection == "Accueil":
+    st.write("Bienvenue sur la page d'accueil !")
+elif selection == "Photos":
+    st.write("Bienvenue sur mon album photo")
 # # ... et ainsi de suite pour les autres pages
 
 # import pandas as pd
