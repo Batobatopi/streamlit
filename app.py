@@ -53,46 +53,47 @@ with st.sidebar:
         #     )
         
         # On indique au programme quoi faire en fonction du choix
-        if selection == "Accueil":
-            st.title("Bienvenue sur la page d'accueil !")
-            link='https://raw.githubusercontent.com/mwaskom/seaborn-data/master/taxis.csv'
-            df=pd.read_csv(link, sep=",")
-            pickup = df['pickup_borough'].unique()
-
-
-            option=st.selectbox("Indiquez votre arrondissement de récupération",pickup)
-            st.write('Tu as choisi :', option)
-
-            image={'Brooklyn' : 'https://images.ctfassets.net/1aemqu6a6t65/68nkexvLlGiTxvxFvzoELk/68ee51265baad76b8d7f5ae8cd99bf2c/brooklyn-bridge-sunset-julienne-schaer.jpg',
-                'Manhattan' : 'https://media.istockphoto.com/id/946087016/fr/photo/vue-a%C3%A9rienne-du-lower-manhattan-new-york.jpg?s=612x612&w=0&k=20&c=UC9a3WcsVU-qRI70I1Y7G7_kznMidm6_9VrKAJA1pBg=',
-                'Bronx' : 'https://thegoodlife.fr/wp-content/thumbnails/uploads/sites/2/2016/03/TGL-P-022-188-V-H-06-tt-width-2000-height-1282-fill-0-crop-0-bgcolor-eeeeee.jpg',
-                'Queens' : 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4_S6_aNBwe0flIJUM7xFM216c7GiVXLwVvIiRLmPF7qicgnRC5UiKk7DCvVewzN_fqOHGwWLb_cWERBFLPcVsloBZPd_cM9C2mnwkLYLll7knOnRS6TVVJotcffBNyefU_-jRKkVUJyU7/s1600/Visiter-Queens-New-York.jpg',
-                }
-
-            if option in image :
-                st.image(image[option])
-            else : st.image('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHRpdWhvajlncHgyaWF2Zm0xY2M3N3hzdnlsbXplZHZsMDgxbnlqaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c20UV66B7zCWA/giphy.gif')
-
-        elif selection == "Photos":
-            st.title("Bienvenue sur mon album photo")
-            col1, col2, col3 = st.columns(3)
-
-            with col1:
-                st.header("A cat")
-                st.image("https://static.streamlit.io/examples/cat.jpg")
-
-            with col2:
-                st.header("A dog")
-                st.image("https://static.streamlit.io/examples/dog.jpg")
-
-            with col3:
-                st.header("An owl")
-                st.image("https://static.streamlit.io/examples/owl.jpg")
-                
     elif st.session_state["authentication_status"] is False:
         st.error("L'username ou le password est/sont incorrect")
     elif st.session_state["authentication_status"] is None:
         st.warning('Les champs username et mot de passe doivent être remplie')
+if selection == "Accueil":
+    st.title("Bienvenue sur la page d'accueil !")
+    link='https://raw.githubusercontent.com/mwaskom/seaborn-data/master/taxis.csv'
+    df=pd.read_csv(link, sep=",")
+    pickup = df['pickup_borough'].unique()
+
+
+    option=st.selectbox("Indiquez votre arrondissement de récupération",pickup)
+    st.write('Tu as choisi :', option)
+
+    image={'Brooklyn' : 'https://images.ctfassets.net/1aemqu6a6t65/68nkexvLlGiTxvxFvzoELk/68ee51265baad76b8d7f5ae8cd99bf2c/brooklyn-bridge-sunset-julienne-schaer.jpg',
+        'Manhattan' : 'https://media.istockphoto.com/id/946087016/fr/photo/vue-a%C3%A9rienne-du-lower-manhattan-new-york.jpg?s=612x612&w=0&k=20&c=UC9a3WcsVU-qRI70I1Y7G7_kznMidm6_9VrKAJA1pBg=',
+        'Bronx' : 'https://thegoodlife.fr/wp-content/thumbnails/uploads/sites/2/2016/03/TGL-P-022-188-V-H-06-tt-width-2000-height-1282-fill-0-crop-0-bgcolor-eeeeee.jpg',
+        'Queens' : 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4_S6_aNBwe0flIJUM7xFM216c7GiVXLwVvIiRLmPF7qicgnRC5UiKk7DCvVewzN_fqOHGwWLb_cWERBFLPcVsloBZPd_cM9C2mnwkLYLll7knOnRS6TVVJotcffBNyefU_-jRKkVUJyU7/s1600/Visiter-Queens-New-York.jpg',
+        }
+
+    if option in image :
+        st.image(image[option])
+    else : st.image('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHRpdWhvajlncHgyaWF2Zm0xY2M3N3hzdnlsbXplZHZsMDgxbnlqaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c20UV66B7zCWA/giphy.gif')
+
+elif selection == "Photos":
+    st.title("Bienvenue sur mon album photo")
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.header("A cat")
+        st.image("https://static.streamlit.io/examples/cat.jpg")
+
+    with col2:
+        st.header("A dog")
+        st.image("https://static.streamlit.io/examples/dog.jpg")
+
+    with col3:
+        st.header("An owl")
+        st.image("https://static.streamlit.io/examples/owl.jpg")
+        
+
 
 
 
